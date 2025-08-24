@@ -22,21 +22,24 @@ export class ConfigService {
   // ];
   //     return of(all).pipe(delay(400));
   //   }
-getWidgetByType(type: string): Observable<WidgetConfig> {
+  getWidgetByType(type: string): Observable<WidgetConfig> {
     switch (type) {
       case 'stat':
         return of({
           id: 'w' + Math.random(),
-          title: 'New Stat',
+          title: 'Stat',
           type: 'stat',
           cols: 1,
           rows: 1,
-          inputs: { value: 42, delta: 5 }
+          inputs: { value: 125000,
+    delta: 12,
+    target: 150000,
+    lastUpdated: '2025-08-23' }
         });
       case 'chart':
         return of({
           id: 'w' + Math.random(),
-          title: 'New Chart',
+          title: 'Chart',
           type: 'chart',
           cols: 2,
           rows: 2,
@@ -45,7 +48,7 @@ getWidgetByType(type: string): Observable<WidgetConfig> {
       case 'table':
         return of({
           id: 'w' + Math.random(),
-          title: 'New Table',
+          title: 'Table',
           type: 'table',
           cols: 3,
           rows: 2,
@@ -59,7 +62,7 @@ getWidgetByType(type: string): Observable<WidgetConfig> {
       default:
         throw new Error('Unknown widget type: ' + type);
     }
-}
+  }
   getDashboardConfig(type: string): Observable<WidgetConfig[]> {
 
     switch (type) {
@@ -75,11 +78,16 @@ getWidgetByType(type: string): Observable<WidgetConfig> {
           },
           {
             id: 'w2',
-            title: 'Revenue',
+            title: 'Sales Revenue',
             type: 'stat',
-            cols: 2,
+            cols: 1,
             rows: 1,
-            inputs: { value: 89000, delta: 12 }
+            inputs: {
+              value: 125000,
+              delta: 12,
+              target: 150000,
+              lastUpdated: '2025-08-23'
+            }
           }
         ]);
 
@@ -118,8 +126,3 @@ getWidgetByType(type: string): Observable<WidgetConfig> {
     }
   }
 }
-
-
-
-
-
