@@ -6,22 +6,7 @@ import { TableRow, WidgetConfig } from '../models/widget';
 @Injectable({ providedIn: 'root' })
 export class ConfigService {
   // Simulate API: sometimes error, otherwise return default widgets
-  //   getDashboardConfig(role: string) {
-  //     const shouldError = false; // toggle to simulate API failure
-  //     if (shouldError) {
-  //       return throwError(() => new Error('Failed to load configuration')).pipe(delay(500));
-  //     }
-  //     const all: WidgetConfig[] = [
-  //       { id: 'w1', type: 'stat', title: 'Total Revenue', cols: 3, rows: 2, inputs: { value: 120000, delta: 5 } },
-  //       { id: 'w2', type: 'chart', title: 'Monthly Sales', cols: 6, rows: 4, inputs: { series: [5,10,7,12,9,14] } },
-  //       { id: 'w3', type: 'table', title: 'Top Campaigns', cols: 3, rows: 4, inputs: { rows: [
-  //       { name: 'Campaign 1', cvr: 12, spend: 1200 },
-  //       { name: 'Campaign 2', cvr: 8, spend: 800 }
-  //   ] } },
-  //   { id: 'w4', type: 'stat', title: 'Active Users', cols: 3, rows: 2, inputs: { value: 4500, delta: 2 } }
-  // ];
-  //     return of(all).pipe(delay(400));
-  //   }
+  
   getWidgetByType(type: string): Observable<WidgetConfig> {
     switch (type) {
       case 'stat':
